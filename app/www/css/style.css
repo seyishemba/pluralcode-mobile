@@ -1,5 +1,49 @@
 
-.large_button {
-	line-height: 20vh !important;
-	height: 200px;
-  }
+@font-face {
+    font-family: Roboto;
+    src: url(/fonts/Roboto-Medium.ttf);
+}
+
+.my_tile {
+  width: 100% !important;
+}
+
+.font_style {
+	font-family: Roboto;
+}
+
+.view_theme {
+	background-color: #211E27 !important;
+}
+
+.tabs-custom > .tabs,
+.tabs.tabs-custom {
+  background-color: #FCC930; !important;
+}
+
+.img-profile {
+ 	margin:0 auto;
+	position:center;
+	border-radius:50%;
+}
+
+.parent {
+	text-align: center;
+}
+
+body {
+	padding: 0px !important;
+}
+.item-footer {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: -4px;
+    margin-bottom: -4px;
+    height: 40px;
+}
+.special_tile{
+	margin: 0px !important;
+}
+.label_center{
+	margin-left: 30% !important;
+}

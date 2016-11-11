@@ -1,51 +1,84 @@
 
-<ion-view view-title="PluralCode">
+<ion-view view-title="PluralCode" hide-back-button="true" >
 	
 <ion-content>
 	
+	<div class="row">
+		
+			<div class="tile my_tile" ng-click="load_classrooms()">
+    			<div class="tile-content iconic" style="background-color: #679DFD; ">
+					<i class = "icon ion-search" style="color: #ffffff"></i>
+        			<span class="tile-label font_style" style="color: #ffffff">Find New Course</span>
+        			
+    			</div>
+			</div>
+		
+		
+		
+			<div class="tile my_tile" ng-click="load_editor()">
+    			<div class="tile-content iconic" style="background-color: #679DFD;">
+					<i class = "icon ion-code" style="color: #ffffff"></i>
+        			<span class="tile-label font_style" style="color: #ffffff">Code Editor</span>
+    			</div>
+			</div>
+	
+	
+	</div>
+	<div class="row">
+	
+		
+			<div class="tile my_tile" ng-click="load_archive()">
+    			<div class="tile-content iconic" style="background-color:#679DFD;">
+					<i class = "icon ion-archive" style="color: #ffffff"></i>
+        			<span class="tile-label font_style" style="color: #ffffff">Offline Archives</span>
+    			</div>
+			</div>
+	
+		
+		
+			<div class="tile my_tile" ng-click="load_achievements()">
+    			<div class="tile-content iconic" style="background-color: #679DFD">
+					<i class = "icon ion-ribbon-a" style="color: #ffffff"></i>
+        			<span class="tile-label font_style" style="color: #ffffff">Achievements</span>
+        			<span class="tile-badge" style="color: #ffffff">0</span>
+    			</div>
+				
+			</div>
+	
+	
+	</div>	
+	
+	
+    
+		<div class="tile-small my_tile special_tile" ng-click="load_live_mentor()">
+				<div class="tile-content iconic" style="background-color: #FCC930;">
+					<i class = "icon ion-person-stalker" style="color: #ffffff"></i>
+        			<span class="tile-label font_style" style="color: #ffffff">Book a live mentor</span>
+    			</div>
+    		</div>
 	
 	
 	<div class="row">
-		<div class="col">
-			<button class="button button-block button-large button-positive button-outline button-icon-left icon ion-university">
-				Classrooms
-			</button>
-		</div>
-		<div class="col">
-			<button class="button button-block button-large button-positive button-outline button-icon-left icon ion-social-codepen"> 
-				Code Editor
-			</button>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col">
-			<button class="button button-block button-large button-positive button-outline button-icon-left icon ion-archive">
-				Offline Archives
-			</button>
-		</div>
-		<div class="col">
-			<button class="button button-block button-large button-positive button-outline button-icon-left icon ion-trophy">
-				Achievements
-			</button>
-		</div>
-	</div>
+		
+		
+		
+			<div class="tile my_tile" ng-click="load_contact_us()">
+				<div class="tile-content iconic" style="background-color: #679DFD;">
+					<i class = "icon ion-paper-airplane" style="color: #ffffff"></i>
+        			<span class="tile-label font_style" style="color: #ffffff">Contact us</span>
+    			</div>
+    		</div>
 	
-    <div class="row">
-		<button class="button button-block button-positive button-icon-left icon ion-android-people">
-			Book a live mentor
-		</button>
-	</div>
-	<div class="row">
-		<div class="col">
-			<button class="button button-block button-large button-royal button-outline button-icon-left icon ion-ios-telephone-outline">
-				Contact us
-			</button>
-		</div>
-		<div class="col">
-			<button class="button button-block button-large button-royal button-outline button-icon-left ion-android-person-add">
-				Invite a friend
-			</button>
-		</div>
+	
+		
+			<div class="tile my_tile" ng-click="load_invite()">
+				<div class="tile-content iconic" style="background-color:#679DFD;">
+					<i class = "icon ion-plus" style="color: #ffffff"></i>
+        			<span class="tile-label font_style" style="color: #ffffff">Invite a friend</span>
+    			</div>
+    		</div>
+	
+		
 	</div>
  
 

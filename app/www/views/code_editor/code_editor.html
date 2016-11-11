@@ -1,0 +1,15 @@
+<ion-view view-title="Code Editor" hide-back-button="false">
+	<ion-content>
+		<label class = "item item-input item-select">
+   <div class = "input-label">
+      Select language
+   </div>
+	
+   <select name="mySelect" id="mySelect"
+      ng-options="option.name for option in data.availableOptions track by option.id"
+      ng-model="data.selectedOption"></select>
+</label>
+		 <textarea id="code" ng-model="script"></textarea>
+		<button class="button button-full button-block button-positive"> Run Code </button>
+	</ion-content>
+</ion-view>

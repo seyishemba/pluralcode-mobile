@@ -1,0 +1,43 @@
+
+<ion-view view-title="View" hide-back-button="false">
+	<ion-content>
+		<div class="card" ng-repeat="lesson in lessons">
+			<div class="item" style="background-color: #679DFD;">
+				<h2 style=" color: #ffffff; font-weight:bold; ">{{lesson.content_title}}</h2>
+			</div>
+			<div class="item item-body">
+				{{lesson.course_text}}
+			</div>
+			<div class="item item-footer">
+				<div class="row no-padding">
+				<div class="col">
+					<a class="button button-small button-assertive button-clear" style="font-weight: bold ">
+						<i class = "icon-left ion-social-youtube-outline"></i>
+						Video
+						
+					</a>
+				</div>
+				<div class="col">
+					<a class="button button-small button-assertive button-clear text-right" style="font-weight: bold " ng-click="load_doc(lesson.documents)">
+						<i class = "icon-left ion-ios-book-outline"></i>
+						Read
+					</a>
+				</div>
+				</div>
+			
+			</div>
+		</div>
+		
+		<script id="pdf-viewer.html" type="text/ng-template">  
+    <ion-modal-view>
+    <ion-header-bar> 
+        <button ng-click="vm.modal.hide()" class="button button-icon icon ion-android-close"></button>
+    </ion-header-bar>
+    <ion-content>
+        <ng-pdf ng-if="pdfUrl" template-url="partials/viewer.html" canvasid="pdf" scale="page-fit"></ng-pdf>  
+    </ion-content>
+    </ion-modal-view>
+</script>  
+		
+	</ion-content>
+</ion-view>

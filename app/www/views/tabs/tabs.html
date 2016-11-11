@@ -1,12 +1,15 @@
 
 <ion-view view-title="PluralCode" hide-back-button="true">
 </ion-view>
-<ion-tabs class="tabs-icon-top tabs-positive">
-	<ion-tab title="Home" icon-on="ion-ios-home" icon-off="ion-ios-home-outline" ui-sref="tabs.home">
+<ion-tabs class="tabs-icon-top tabs-positive tabs-custom">
+	<ion-tab title="Notifications" icon-on="ion-ios-chatboxes" icon-off="ion-ios-chatboxes-outline" ui-sref="tabs.notifications">
+		<ion-nav-view name="notifications-tab"></ion-nav-view>
+	</ion-tab>
+	<ion-tab title="Home" icon-on="ion-ios-home" icon-off="ion-ios-home-outline" ui-sref="tabs.home" >
 <ion-nav-view name="home-tab"></ion-nav-view>
 	</ion-tab>
-	<ion-tab title="Recent lessons" icon-on="ion-ios-bookmarks" icon-off="ion-ios-bookmarks-outline">
+	<ion-tab title="Classrooms" icon-on="ion-ios-bookmarks" icon-off="ion-ios-bookmarks-outline" ui-sref="tabs.classrooms">
+		<ion-nav-view name="classrooms-tab"></ion-nav-view>
 	</ion-tab>
-	<ion-tab title="Inbox" icon-on="ion-ios-chatboxes" icon-off="ion-ios-chatboxes-outline">
-	</ion-tab>
+	
 </ion-tabs>
