@@ -1,6 +1,6 @@
 
 angular.module("App")
-.controller("ClassroomsController", function ($scope, $http, $ionicPopup, $ionicLoading, $cordovaFile, $state) {
+.controller("ClassroomsController", function ($scope, $http, $ionicPopup, $ionicLoading, $state) {
 	$scope.reg_no = "142058";
 	$scope.password = "password";
 	$ionicLoading.show({
@@ -24,60 +24,6 @@ angular.module("App")
 		$ionicLoading.hide();
 			if (data.error_code == 240) {
 				
-				// successful
-				$ionicLoading.show({
-					template: 'Processing...',
-				});
-				
-		
-				
-				$cordovaFile.createDir(cordova.file.dataDirectory, "pluralcode", true)
-				
-					.then(function (success) {
-						alert("status " + success);
-					
-						$cordovaFile.createDir(cordova.file.dataDirectory + "pluralcode/", $scope.course_id, true)
-					
-							.then(function (success) {
-								alert("status " + success);
-								
-								for (lesson in data.course_detail){
-									$cordovaFile.createDir(cordova.file.dataDirectory + "pluralcode/" + $scope.course_id, lesson.content_title, true)
-										.then (function (success) {
-											alert("status " + success);
-										 	// download materials
-											 $cordovaFile.writeFile(cordova.file.dataDirectory + "pluralcode/" + $scope.course_id + lesson.content_title,
-																	"samplepdf.txt", lesson.documents, true)
-      											.then(function (success) {
-        												// success
-      											}, function (error) {
-        												
-      											});
-											$cordovaFile.writeFile(cordova.file.dataDirectory + "pluralcode/" + $scope.course_id + lesson.content_title,
-																   "samplevideo.txt", lesson.videos, true)
-      											.then(function (success) {
-        												// success
-      											}, function (error) {
-        												
-      											});
-									}, function (error) {
-										
-									});
-								};
-								
-					
-							}, function (error) {
-									
-						
-							});
-			
-					}, function (error) {
-					
-							// do nothing
-					
-					});
-					
-				$ionicLoading.hide();
 				var alertPopup = $ionicPopup.alert({
 					title: 'Success',
 					template: data.message

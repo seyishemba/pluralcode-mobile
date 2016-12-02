@@ -19,5 +19,8 @@ angular.module("App")
 		console.log("I am reachable here in view_course");
 		$state.go("tabs.pdf_viewer", {doc_url:doc_url});
 	};
+	$scope.load_video = function (video_url) {
+		$state.go("tabs.video_viewer", {video_url:video_url});
+	};
 	
 });

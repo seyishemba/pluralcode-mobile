@@ -1,7 +1,18 @@
-angular.module('App', ['ionic', 'ngCordova', 'pdf'])
+angular.module('App', ['ionic', 'ngVideo'])
 
 .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-	$stateProvider.state('tabs', {
+	$stateProvider
+	.state('signup1', {
+		url: '/signup',
+		templateUrl: 'views/signup/signup1.html',
+		controller: 'SignUpController'
+	})
+	.state('signup2', {
+		url: '/intermediate',
+		templateUrl: 'views/signup/intermediate.html',
+		controller: 'IntermediateController'
+	})
+	.state('tabs', {
 		url: '/tabs',
 		abstract: true,
 		templateUrl: 'views/tabs/tabs.html'
@@ -42,16 +53,17 @@ angular.module('App', ['ionic', 'ngCordova', 'pdf'])
 			
 		}
 	})
-	.state('tabs.pdf_viewer', {
-		url: '/pdf_view/:doc_url',
+	.state('tabs.video_viewer', {
+		url: '/video_view/:video_url',
 		views: {
 			'classrooms-tab': {
-				templateUrl: 'views/pdf_view/pdfview.html',
-				controller: "PdfViewController"
+				templateUrl: 'views/video_view/videoview.html',
+				controller: "VideoViewController"
 			}
 			
 		}
 	})
+	
 	.state('tabs.code_editor', {
 		url: '/code_editor',
 		views: {
@@ -107,7 +119,8 @@ angular.module('App', ['ionic', 'ngCordova', 'pdf'])
 			
 		}
 	});
-	$urlRouterProvider.otherwise('/tabs/home');
+	
+	$urlRouterProvider.otherwise('/signup');
 	$ionicConfigProvider.tabs.position('top');
 	$ionicConfigProvider.navBar.alignTitle('center');
 	$ionicConfigProvider.scrolling.jsScrolling(false);
