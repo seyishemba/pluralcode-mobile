@@ -1,5 +1,5 @@
 angular.module("App")
-.controller("SignUpController", function ($scope, $ionicLoading, $ionicPopup, $state) {
+.controller("SignUpController", function ($scope, $ionicLoading, $ionicPopup, $state, $http) {
 	$scope.details = [
 		{name: ''},
 		{email: ''},
@@ -30,11 +30,34 @@ angular.module("App")
 					return;
 				}
 		};
-		$ionicLoading.hide();
-		$state.go('signup2');
-		console.log($scope.details.name);
-		console.log($scope.details.email);
-		console.log($scope.details.phone_number);
-		console.log($scope.details.password);
+		$http.get("http://pluralcode.zigmatechconsult.com/public/home/register_student?fullname=" + $scope.details.name + "&password=" + $scope.details.password + "&email=" + $scope.details.email + "&phone=" + $scope.details.phone_number)
+			.success (function (data) {
+			if (data.error_code == 241) {
+				$ionicLoading.hide();
+				
+				var alertPopup = $ionicPopup.alert({
+					title: 'Error',
+					template: data.message
+				});
+				return;
+				
+			};
+			if (data.error_code == 240) {
+				$ionicLoading.hide();
+				$state.go('signup2');
+				console.log($scope.details.name);
+				console.log($scope.details.email);
+				console.log($scope.details.phone_number);
+				console.log($scope.details.password);
+				
+				
+			};
+		})
+			.error( function (err) {
+			
+		});
+
+		
+		
 	};
 });

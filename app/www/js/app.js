@@ -12,11 +12,22 @@ angular.module('App', ['ionic', 'ngVideo'])
 		templateUrl: 'views/signup/intermediate.html',
 		controller: 'IntermediateController'
 	})
+	.state('login', {
+		url: '/login',
+		templateUrl: 'views/login/login.html',
+		controller: "LoginController"
+	})
 	.state('tabs', {
 		url: '/tabs',
 		abstract: true,
-		templateUrl: 'views/tabs/tabs.html'
-		})
+		templateUrl: 'views/tabs/tabs.html',
+		onEnter: function($state, Auth){
+        if(!Auth.isLoggedIn()){
+           $state.go('login');
+        }
+    }
+		
+	})
 	.state('tabs.home', {
 		url: '/home',
 		views: {
@@ -120,13 +131,15 @@ angular.module('App', ['ionic', 'ngVideo'])
 		}
 	});
 	
-	$urlRouterProvider.otherwise('/signup');
+	$urlRouterProvider.otherwise('/tabs/home');
 	$ionicConfigProvider.tabs.position('top');
 	$ionicConfigProvider.navBar.alignTitle('center');
 	$ionicConfigProvider.scrolling.jsScrolling(false);
 	
 	})
- 
+
+
+
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -136,5 +149,34 @@ angular.module('App', ['ionic', 'ngVideo'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-  });
+  })
 })
+
+.factory('Auth', function () {
+   if (window.localStorage['session']) {
+      var _user = JSON.parse(window.localStorage['session']);
+   }
+   var setUser = function (session) {
+      _user = session;
+      window.localStorage['session'] = JSON.stringify(_user);
+   }
+
+   return {
+      setUser: setUser,
+      isLoggedIn: function () {
+         return _user ? true : false;
+      },
+      getUser: function () {
+         return _user;
+      },
+      logout: function () {
+         window.localStorage.removeItem("session");
+         window.localStorage.removeItem("list_dependents");
+         _user = null;
+      }
+   }
+})
+
+
+
+
