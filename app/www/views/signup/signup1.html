@@ -1,8 +1,40 @@
 
-<ion-view view-title="Signup" hide-back-button="false">
-	<ion-content>
-	
-		
+<ion-view view-title="Signup" hide-back-button="true" hide-nav-bar="true">
+	<ion-content class="padding slides">
+	<!--I AM ABOUT TO USE THE LOGIN CODE PROTOTYPE HERE-->
+	<div style="padding-top: 5%">
+      <h3 style="font-weight: 100; color: white">Sign Up</h3>
+      <br>
+      <p>Name:</p>
+          <label class="item item-input">
+              <input type="text" placeholder="Name" ng-model="data.username">
+          </label><br>
+        <p>Email:</p>
+          <label class="item item-input">
+              <input type="text" placeholder="Email" ng-model="data.username">
+          </label><br>
+          <p>Telephone:</p>
+          <label class="item item-input">
+              <input type="text" placeholder="Telephone" ng-model="data.username">
+          </label><br>
+          <p>Password:</p>
+          <label class="item item-input">
+              <input type="password" placeholder="Password" ng-model="data.password">
+          </label><br>
+      <p>Confirm Password:</p>
+          <label class="item item-input">
+              <input type="password" placeholder="Password again" ng-model="data.password">
+          </label>
+      </div>
+      <button class="button button-block" style="    border-bottom: 5px solid #907b06;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    background-color: #d4b50a;
+    color: #fff;" ng-click="login()">Sign Up</button>
+      <br><br>
+      <p ng-click="login()" style="text-align: center;">Already have an account? <b>Login Now</b></p>
+		<!-- ALCUINS SIGN UP CODE. I DONT WANT TO SCATTER THIS ANYMORE,,,
 		
 		<div class="list">
 			<form name="myForm">
@@ -58,6 +90,6 @@
 				</div>
 			</div>
 			
-		</div>
+		</div>-->
 	</ion-content>
 </ion-view>
